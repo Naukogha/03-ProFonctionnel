@@ -10,7 +10,7 @@ public class IHM {
         this.scanner= new Scanner(System.in);
     }
 
-    public  void start(){
+    public void start(){
         System.out.println("Bienvenue dans la calculatrice !");
         while (true) {
             System.out.print("Entrez le premier nombre : ");
@@ -21,6 +21,11 @@ public class IHM {
 
             System.out.print("Choisissez une opération : +, -, *, /");
             String operation = scanner.nextLine();
+
+            if (!calculatrice.isOperationSupported(operation)) {
+                System.out.println("Opération non reconnue. Veuillez réessayer.");
+                continue;
+            }
 
             Calculator calculator = calculatrice.getOperation(operation);
             double result = calculator.calculate(num1, num2);
