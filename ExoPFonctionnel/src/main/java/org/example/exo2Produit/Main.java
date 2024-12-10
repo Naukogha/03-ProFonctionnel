@@ -27,6 +27,9 @@ public class Main {
         Transform AugPrice = (product, price) -> product.setPrix(product.getPrix() + (double) price);
         Transform DimPrice = (product, price) -> product.setPrix(product.getPrix() - (double) price);
 
+        Transform DimStock = (product, quantity) -> product.setPrix(product.getPrix() - (double) quantity);
+        Transform AugStock = (product, quantity) -> product.setPrix(product.getPrix() + (double) quantity);
+
         System.out.println("Prix avant augmentation : " + chocolat.getPrix());
         AugPrice.transform(chocolat, 3.0);
         System.out.println("Prix après augmentation : " + chocolat.getPrix());
